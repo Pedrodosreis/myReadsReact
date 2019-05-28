@@ -14,7 +14,7 @@ class SearchComponent extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 	}  	
 
-	handleSearch(query) {
+	handleSearch(query) {		
 		this.setState({
 			query: query
 		});
@@ -25,6 +25,7 @@ class SearchComponent extends React.Component {
 
           Promise.all(this.updateShelfsForSearchRecords(bks))
           .then(updatedBks => {
+          	console.log(updatedBks);
           	this.setState({
                 searchBooks: updatedBks.filter(b => b.imageLinks !== undefined)
             });
@@ -33,7 +34,7 @@ class SearchComponent extends React.Component {
       	this.setState({
       		searchBooks: []
       	});
-      }
+      }      
   });
 		} else {
 
